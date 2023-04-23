@@ -1,10 +1,15 @@
 import React from "react";
 import styles from "./RAM.module.css";
+import DataHandler from "../../data/DataHandler";
 
 //COMPS
 import Registers from "./Registers";
 
-const RAM: React.FC = () => {
+interface IProps {
+  data: DataHandler;
+}
+
+const RAM: React.FC<IProps> = ({ data }) => {
   return (
     <div className={styles.ram}>
       <div className={styles.title}>
