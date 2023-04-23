@@ -2,8 +2,7 @@ import React from "react";
 import styles from "./RAM.module.css";
 
 //COMPS
-import Register from "./Register";
-import AddressColumn from "./Columns/AddressColumn";
+import Registers from "./Registers";
 
 const RAM: React.FC = () => {
   return (
@@ -11,8 +10,8 @@ const RAM: React.FC = () => {
       <div className={styles.title}>
         <h3>RAM</h3>
       </div>
-      <div className={styles.registers}>
-        <AddressColumn />
+      <div className={styles.registersBox}>
+        <Registers />
       </div>
     </div>
   );

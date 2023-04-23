@@ -1,0 +1,5 @@
+@import "../../vars.css";
+
+.singleRegister {
+  border-top: var(--border);
+}
