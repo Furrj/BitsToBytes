@@ -4,12 +4,20 @@ import styles from "./AddressColumn.module.css";
 //COMPS
 import SingleRegister from "../SingleRegister";
 
-const AddressColumn: React.FC = () => {
+//STATE
+interface IProps {
+  address: number;
+}
+
+const AddressColumn: React.FC<IProps> = ({ address }) => {
   return (
     <div className={styles.addressColumn}>
       <span>Address</span>
-      <SingleRegister />
-      <SingleRegister />
+      <SingleRegister value={address} />
+      <SingleRegister value={address + 1} />
+      <SingleRegister value={address + 2} />
+      <SingleRegister value={address + 3} />
+      <SingleRegister value={address + 4} />
     </div>
   );
 };
