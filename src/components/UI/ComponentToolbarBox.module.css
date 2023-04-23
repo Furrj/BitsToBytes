@@ -1,0 +1,8 @@
+@import "../../vars.css";
+
+.box {
+  height: 100px;
+  width: 100%;
+  border-top: var(--border);
+  box-sizing: border-box;
+}
