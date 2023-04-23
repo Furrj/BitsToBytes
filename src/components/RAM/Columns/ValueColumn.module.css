@@ -1,1 +1,6 @@
 @import "../../../vars.css";
+
+.valueColumn {
+  height: 100%;
+  width: 50%;
+}
