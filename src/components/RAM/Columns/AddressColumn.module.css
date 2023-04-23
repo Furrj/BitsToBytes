@@ -1,0 +1,7 @@
+@import "../../../vars.css";
+
+.addressColumn {
+  height: 100%;
+  width: 25%;
+  border-right: var(--border);
+}
