@@ -1,0 +1,8 @@
+@import "../../vars.css";
+
+.accumulator {
+  border: var(--border);
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
