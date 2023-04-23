@@ -7,10 +7,10 @@ import Draggable from "react-draggable";
 import Registers from "./Registers";
 
 interface IProps {
-  data: DataHandler;
+  dataHandler: DataHandler;
 }
 
-const RAM: React.FC<IProps> = ({ data }) => {
+const RAM: React.FC<IProps> = ({ dataHandler }) => {
   return (
     <Draggable>
       <div className={styles.ram}>
@@ -18,7 +18,7 @@ const RAM: React.FC<IProps> = ({ data }) => {
           <h3>RAM</h3>
         </div>
         <div className={styles.registersBox}>
-          <Registers />
+          <Registers dataHandler={dataHandler} />
         </div>
       </div>
     </Draggable>

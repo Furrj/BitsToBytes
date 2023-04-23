@@ -8,7 +8,7 @@ class DataHandler {
 
   initRamData(): void {
     for (let i = 0; i < 20; i++) {
-      this.ramData[i] = 0;
+      this.ramData[i] = i * 2;
     }
   }
 
@@ -18,6 +18,10 @@ class DataHandler {
 
   getRamData(): number[] {
     return this.ramData;
+  }
+
+  getRegisterData(address: number) {
+    return this.ramData[address];
   }
 }
 

@@ -1,8 +1,13 @@
 import React from "react";
 import styles from "./SingleRegister.module.css";
 
-const SingleRegister: React.FC = () => {
-  return <div className={styles.singleRegister}>A2</div>;
+//STATE
+interface IProps {
+  value: number;
+}
+
+const SingleRegister: React.FC<IProps> = ({ value }) => {
+  return <div className={styles.singleRegister}>{value}</div>;
 };
 
 export default SingleRegister;

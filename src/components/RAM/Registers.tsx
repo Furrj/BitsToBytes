@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Registers.module.css";
+import DataHandler from "../../data/DataHandler";
 
 //REDUX
 import type { RootState } from "../../data/store";
@@ -10,7 +11,12 @@ import { increment, decrement, setAddress } from "../../data/ramSlice";
 import AddressColumn from "./Columns/AddressColumn";
 import ValueColumn from "./Columns/ValueColumn";
 
-const Registers: React.FC = () => {
+//STATE
+interface IProps {
+  dataHandler: DataHandler;
+}
+
+const Registers: React.FC<IProps> = ({ dataHandler }) => {
   const currentAddress: number = useSelector(
     (state: RootState) => state.ram.currentAddress
   );
@@ -18,8 +24,8 @@ const Registers: React.FC = () => {
 
   return (
     <div className={styles.register}>
-      <AddressColumn />
-      <ValueColumn />
+      <AddressColumn address={currentAddress} />
+      <ValueColumn address={currentAddress} dataHandler={dataHandler} />
     </div>
   );
 };
