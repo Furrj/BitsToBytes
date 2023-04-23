@@ -2,8 +2,8 @@
 
 .register {
   width: 70%;
-  height: 80%;
   border: var(--border);
   display: flex;
   background: white;
+  margin: 2rem;
 }

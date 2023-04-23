@@ -10,6 +10,9 @@ const ValueColumn: React.FC = () => {
       <span>Value</span>
       <SingleRegister />
       <SingleRegister />
+      <SingleRegister />
+      <SingleRegister />
+      <SingleRegister />
     </div>
   );
 };

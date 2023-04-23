@@ -10,6 +10,9 @@ const AddressColumn: React.FC = () => {
       <span>Address</span>
       <SingleRegister />
       <SingleRegister />
+      <SingleRegister />
+      <SingleRegister />
+      <SingleRegister />
     </div>
   );
 };
