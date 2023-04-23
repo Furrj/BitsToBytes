@@ -1,16 +1,11 @@
 import React from "react";
 import styles from "./RAM.module.css";
-import DataHandler from "../../data/DataHandler";
 import Draggable from "react-draggable";
 
 //COMPS
 import Registers from "./Registers";
 
-interface IProps {
-  dataHandler: DataHandler;
-}
-
-const RAM: React.FC<IProps> = ({ dataHandler }) => {
+const RAM: React.FC = () => {
   return (
     <Draggable>
       <div className={styles.ram}>
@@ -18,7 +13,7 @@ const RAM: React.FC<IProps> = ({ dataHandler }) => {
           <h3>RAM</h3>
         </div>
         <div className={styles.registersBox}>
-          <Registers dataHandler={dataHandler} />
+          <Registers />
         </div>
       </div>
     </Draggable>
