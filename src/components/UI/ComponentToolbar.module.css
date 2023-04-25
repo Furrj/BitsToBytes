@@ -1,7 +1,7 @@
 @import "../../vars.css";
 
 .toolbar {
-  width: 30px;
+  width: 25px;
   background: rgba(0, 239, 173, 0.83);
   height: 100vh;
   position: fixed;
