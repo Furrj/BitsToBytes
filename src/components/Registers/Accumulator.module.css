@@ -5,4 +5,40 @@
   width: 100px;
   height: 100px;
   cursor: pointer;
+  position: absolute;
+  left: 30%;
+  top: 40%;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  box-sizing: border-box;
+  background: white;
+  color: black;
+  border-bottom: var (--border);
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.valueCont {
+  background-color: grey;
+  height: 100%;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.valueBox {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 1rem;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
