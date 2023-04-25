@@ -31,9 +31,26 @@
 }
 
 .addressBox {
-  width: 25%;
+  width: 34%;
   border-right: var(--border);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.valueBox {
+  width: 34%;
+  border-right: var(--border);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.accumulatorBox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,16 +81,6 @@ button {
   border: var(--border);
   box-sizing: border-box;
   cursor: default;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.valueBox {
-  width: 25%;
-  border-right: var(--border);
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
