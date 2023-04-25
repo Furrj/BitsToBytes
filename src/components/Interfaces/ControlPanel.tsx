@@ -2,7 +2,13 @@ import React from "react";
 import styles from "./ControlPanel.module.css";
 import Draggable from "react-draggable";
 
+//REDUX
+import { useSelector, useDispatch } from "react-redux";
+import * as ramReducer from "../../data/ramSlice";
+
 const ControlPanel: React.FC = () => {
+  const dispatch = useDispatch();
+
   return (
     <Draggable>
       <div className={styles.controlPanel}>
@@ -11,13 +17,17 @@ const ControlPanel: React.FC = () => {
           <div className={styles.addressBox}>
             <div className={styles.boxTitle}>Address</div>
             <input type="number" name="address" id="address" />
-            <button>Set</button>
+            <button onClick={() => dispatch(ramReducer.setAddress(2))}>
+              Set
+            </button>
             <div className={styles.currentValue}>9</div>
           </div>
           <div className={styles.valueBox}>
             <div className={styles.boxTitle}>Value</div>
             <input type="number" name="address" id="address" />
-            <button>Set</button>
+            <button onClick={() => dispatch(ramReducer.setValue([0, 20]))}>
+              Set
+            </button>
             <div className={styles.currentValue}>9</div>
           </div>
           <div className={styles.accumulatorBox}>
