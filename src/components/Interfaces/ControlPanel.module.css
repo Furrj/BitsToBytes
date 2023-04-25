@@ -27,4 +27,46 @@
   height: 100%;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
+  display: flex;
+}
+
+.addressBox {
+  width: 25%;
+  border: 1px solid white;
+  box-sizing: border-box;
+  border-bottom-left-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 80%;
+  background: white;
+  box-shadow: none;
+  color: black;
+  margin: 0.5rem;
+  border: var(--border);
+  border-radius: 5px;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+.currentValue {
+  width: 80%;
+  height: 50px;
+  background: white;
+  color: black;
+  margin-top: 0.5rem;
+  border: var(--border);
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
