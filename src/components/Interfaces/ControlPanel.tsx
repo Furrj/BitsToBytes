@@ -5,8 +5,13 @@ import Draggable from "react-draggable";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
+import { RootState } from "../../data/store";
 
 const ControlPanel: React.FC = () => {
+  const values: number[] = useSelector((state: RootState) => state.ram.data);
+  const address: number = useSelector(
+    (state: RootState) => state.ram.currentAddress
+  );
   const dispatch = useDispatch();
 
   return (
@@ -20,7 +25,7 @@ const ControlPanel: React.FC = () => {
             <button onClick={() => dispatch(ramReducer.setAddress(2))}>
               Set
             </button>
-            <div className={styles.currentValue}>9</div>
+            <div className={styles.currentValue}>{address}</div>
           </div>
           <div className={styles.valueBox}>
             <div className={styles.boxTitle}>Value</div>
@@ -28,7 +33,7 @@ const ControlPanel: React.FC = () => {
             <button onClick={() => dispatch(ramReducer.setValue([0, 20]))}>
               Set
             </button>
-            <div className={styles.currentValue}>9</div>
+            <div className={styles.currentValue}>{values[address]}</div>
           </div>
           <div className={styles.accumulatorBox}>
             <div className={styles.boxTitle} style={{ marginLeft: "2px" }}>
