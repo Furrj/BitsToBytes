@@ -5,6 +5,7 @@ import Draggable from "react-draggable";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
+import { setValue } from "../../data/registerSlice";
 import { RootState } from "../../data/store";
 
 //STATE
@@ -72,7 +73,9 @@ const ControlPanel: React.FC = () => {
             <div className={styles.boxTitle} style={{ marginLeft: "2px" }}>
               Accumulator
             </div>
-            <button>Load</button>
+            <button onClick={() => dispatch(setValue(values[address]))}>
+              Load
+            </button>
             <button>Store</button>
           </div>
         </div>
