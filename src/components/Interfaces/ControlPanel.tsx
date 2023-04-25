@@ -14,6 +14,12 @@ const ControlPanel: React.FC = () => {
             <button>Set</button>
             <div className={styles.currentValue}>9</div>
           </div>
+          <div className={styles.valueBox}>
+            <div className="boxTitle">Value</div>
+            <input type="number" name="address" id="address" />
+            <button>Set</button>
+            <div className={styles.currentValue}>9</div>
+          </div>
         </div>
       </div>
     </Draggable>
