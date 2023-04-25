@@ -5,6 +5,7 @@ import Draggable from "react-draggable";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
+import { setValue } from "../../data/registerSlice";
 import { RootState } from "../../data/store";
 
 //STATE
@@ -21,9 +22,12 @@ const initInput: IInput = {
 const ControlPanel: React.FC = () => {
   const [input, setInput] = useState<IInput>(initInput);
 
-  const values: number[] = useSelector((state: RootState) => state.ram.data);
+  const ramValues: number[] = useSelector((state: RootState) => state.ram.data);
   const address: number = useSelector(
     (state: RootState) => state.ram.currentAddress
+  );
+  const accValue: number = useSelector(
+    (state: RootState) => state.register.value
   );
   const dispatch = useDispatch();
 
@@ -66,14 +70,20 @@ const ControlPanel: React.FC = () => {
             >
               Set
             </button>
-            <div className={styles.currentValue}>{values[address]}</div>
+            <div className={styles.currentValue}>{ramValues[address]}</div>
           </div>
           <div className={styles.accumulatorBox}>
             <div className={styles.boxTitle} style={{ marginLeft: "2px" }}>
               Accumulator
             </div>
-            <button>Load</button>
-            <button>Store</button>
+            <button onClick={() => dispatch(setValue(ramValues[address]))}>
+              Load
+            </button>
+            <button
+              onClick={() => dispatch(ramReducer.setValue([address, accValue]))}
+            >
+              Store
+            </button>
           </div>
         </div>
       </div>
