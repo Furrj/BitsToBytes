@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 //COMPS
 import RAM from "./components/RAM/RAM";
-import Change from "./components/Interfaces/Change";
 import Accumulator from "./components/Registers/Accumulator";
 import ComponentToolbar from "./components/UI/ComponentToolbar";
 import ControlPanel from "./components/Interfaces/ControlPanel";
@@ -31,7 +30,6 @@ const App: React.FC = () => {
         return component;
       })}
       <ControlPanel />
-      <Change />
       <ComponentToolbar
         components={components}
         updateComponents={updateActiveComponents}
