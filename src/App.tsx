@@ -7,16 +7,16 @@ import Accumulator from "./components/Registers/Accumulator";
 import ComponentToolbar from "./components/UI/ComponentToolbar";
 import ControlPanel from "./components/Interfaces/ControlPanel";
 
-const initState: JSX.Element[] = [<ControlPanel />];
+const initState: JSX.Element[] = [];
 
 const App: React.FC = () => {
   const [activeComponents, setActiveComponents] =
     useState<JSX.Element[]>(initState);
 
   const components: JSX.Element[] = [
-    <RAM />,
-    <Accumulator />,
-    <ControlPanel />,
+    <RAM key={0} />,
+    <Accumulator key={1} />,
+    <ControlPanel key={2} />,
   ];
 
   function updateActiveComponents(component: JSX.Element): void {
@@ -30,6 +30,7 @@ const App: React.FC = () => {
       {activeComponents.map((component) => {
         return component;
       })}
+      <ControlPanel />
       <Change />
       <ComponentToolbar
         components={components}

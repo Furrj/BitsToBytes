@@ -9,9 +9,11 @@ import { RootState } from "../../data/store";
 const Accumulator: React.FC = () => {
   const value: number = useSelector((state: RootState) => state.register.value);
 
+  const nodeRef: React.MutableRefObject<null> = React.useRef(null);
+
   return (
-    <Draggable>
-      <div className={styles.accumulator}>
+    <Draggable nodeRef={nodeRef}>
+      <div className={styles.accumulator} ref={nodeRef}>
         <div className={styles.title}>Accumulator</div>
         <div className={styles.valueCont}>
           <div className={styles.valueBox}>
