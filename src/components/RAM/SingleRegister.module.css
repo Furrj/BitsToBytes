@@ -3,3 +3,7 @@
 .singleRegister {
   border-top: var(--border);
 }
+
+.selectedRow {
+  background: lightblue;
+}
