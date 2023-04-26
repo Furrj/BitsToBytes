@@ -6,3 +6,7 @@
   border-top: var(--border);
   box-sizing: border-box;
 }
+
+.isSpawned {
+  background: blue;
+}
