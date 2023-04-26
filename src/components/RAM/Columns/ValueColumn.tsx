@@ -18,11 +18,11 @@ const ValueColumn: React.FC<IProps> = ({ address }) => {
   return (
     <div className={styles.valueColumn}>
       <span>Value</span>
-      <SingleRegister value={data[address]} />
-      <SingleRegister value={data[++address]} />
-      <SingleRegister value={data[++address]} />
-      <SingleRegister value={data[++address]} />
-      <SingleRegister value={data[++address]} />
+      <SingleRegister value={data[address]} selectedRow={true} />
+      <SingleRegister value={data[++address]} selectedRow={false} />
+      <SingleRegister value={data[++address]} selectedRow={false} />
+      <SingleRegister value={data[++address]} selectedRow={false} />
+      <SingleRegister value={data[++address]} selectedRow={false} />
     </div>
   );
 };

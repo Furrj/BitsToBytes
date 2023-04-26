@@ -15,11 +15,11 @@ const AddressColumn: React.FC<IProps> = ({ address }) => {
   return (
     <div className={styles.addressColumn}>
       <span>Address</span>
-      <SingleRegister value={address} />
-      <SingleRegister value={++address} />
-      <SingleRegister value={++address} />
-      <SingleRegister value={++address} />
-      <SingleRegister value={++address} />
+      <SingleRegister value={address} selectedRow={true} />
+      <SingleRegister value={++address} selectedRow={false} />
+      <SingleRegister value={++address} selectedRow={false} />
+      <SingleRegister value={++address} selectedRow={false} />
+      <SingleRegister value={++address} selectedRow={false} />
     </div>
   );
 };
