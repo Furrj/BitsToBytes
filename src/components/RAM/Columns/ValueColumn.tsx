@@ -19,10 +19,10 @@ const ValueColumn: React.FC<IProps> = ({ address }) => {
     <div className={styles.valueColumn}>
       <span>Value</span>
       <SingleRegister value={data[address]} />
-      <SingleRegister value={data[address + 1]} />
-      <SingleRegister value={data[address + 2]} />
-      <SingleRegister value={data[address + 3]} />
-      <SingleRegister value={data[address + 4]} />
+      <SingleRegister value={data[++address]} />
+      <SingleRegister value={data[++address]} />
+      <SingleRegister value={data[++address]} />
+      <SingleRegister value={data[++address]} />
     </div>
   );
 };
