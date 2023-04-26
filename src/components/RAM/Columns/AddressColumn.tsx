@@ -10,6 +10,8 @@ interface IProps {
 }
 
 const AddressColumn: React.FC<IProps> = ({ address }) => {
+  console.log(address);
+
   return (
     <div className={styles.addressColumn}>
       <span>Address</span>

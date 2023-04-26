@@ -6,9 +6,11 @@ import Draggable from "react-draggable";
 import Registers from "./Registers";
 
 const RAM: React.FC = () => {
+  const nodeRef: React.MutableRefObject<null> = React.useRef(null);
+
   return (
-    <Draggable>
-      <div className={styles.ram}>
+    <Draggable nodeRef={nodeRef}>
+      <div className={styles.ram} ref={nodeRef}>
         <div className={styles.title}>
           <h3>RAM</h3>
         </div>

@@ -22,6 +22,8 @@ const initInput: IInput = {
 const ControlPanel: React.FC = () => {
   const [input, setInput] = useState<IInput>(initInput);
 
+  const nodeRef: React.MutableRefObject<null> = React.useRef(null);
+
   const ramValues: number[] = useSelector((state: RootState) => state.ram.data);
   const address: number = useSelector(
     (state: RootState) => state.ram.currentAddress
@@ -36,8 +38,8 @@ const ControlPanel: React.FC = () => {
   }
 
   return (
-    <Draggable>
-      <div className={styles.controlPanel}>
+    <Draggable nodeRef={nodeRef}>
+      <div className={styles.controlPanel} ref={nodeRef}>
         <div className={styles.title}>Control Panel</div>
         <div className={styles.panelCont}>
           <div className={styles.addressBox}>
