@@ -32,11 +32,13 @@ const ComponentToolbar: React.FC<IProps> = ({
             title="RAM"
             component={components[0]}
             updateComponents={updateComponents}
+            restrictSpawn={true}
           />
           <ComponentToolbarBox
             title="Accumulator"
             component={components[1]}
             updateComponents={updateComponents}
+            restrictSpawn={true}
           />
         </div>
       ) : null}
