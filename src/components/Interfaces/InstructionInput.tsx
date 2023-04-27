@@ -31,14 +31,14 @@ const InstructionInput: React.FC = () => {
   return (
     <Draggable nodeRef={nodeRef}>
       <div className={styles.instructions} ref={nodeRef}>
-        <div className={styles.title}>Instructions</div>
+        <div className={styles.title}>Terminal</div>
         <textarea
           name="instructions"
           id="instructions"
           onChange={inputHandler}
           value={input}
         ></textarea>
-        <button onClick={saveInstructions}>Execute</button>
+        <button onClick={saveInstructions}>Store</button>
       </div>
     </Draggable>
   );

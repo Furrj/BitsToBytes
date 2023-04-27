@@ -6,6 +6,7 @@ import Accumulator from "./components/Registers/Accumulator";
 import ComponentToolbar from "./components/UI/ComponentToolbar";
 import ControlPanel from "./components/Interfaces/ControlPanel";
 import InstructionInput from "./components/Interfaces/InstructionInput";
+import InstructionOutput from "./components/Interfaces/InstructionOutput";
 
 const initState: JSX.Element[] = [];
 
@@ -18,6 +19,7 @@ const App: React.FC = () => {
     <Accumulator key={1} />,
     <ControlPanel key={2} />,
     <InstructionInput key={3} />,
+    <InstructionOutput key={4} />,
   ];
 
   function updateActiveComponents(component: JSX.Element): void {
@@ -33,6 +35,7 @@ const App: React.FC = () => {
       })}
       <ControlPanel />
       <InstructionInput />
+      <InstructionOutput />
       <ComponentToolbar
         components={components}
         updateComponents={updateActiveComponents}
