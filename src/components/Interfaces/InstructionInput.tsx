@@ -11,6 +11,18 @@ const InstructionInput: React.FC = () => {
     setInput(e.target.value);
   }
 
+  function saveInstructions(): void {
+    const splitByLine: string[] = input.split("\n");
+    const list: string[][] = [];
+    for (let line of splitByLine) {
+      list.push(line.split(" "));
+    }
+    for (let instruction of list) {
+      instruction[1] = instruction[1].slice(0, instruction[1].length - 1);
+    }
+    console.log(list);
+  }
+
   return (
     <Draggable nodeRef={nodeRef}>
       <div className={styles.instructions} ref={nodeRef}>
@@ -20,7 +32,7 @@ const InstructionInput: React.FC = () => {
           id="instructions"
           onChange={inputHandler}
         ></textarea>
-        <button>Execute</button>
+        <button onClick={saveInstructions}>Execute</button>
       </div>
     </Draggable>
   );
