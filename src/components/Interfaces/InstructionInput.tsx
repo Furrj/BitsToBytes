@@ -13,7 +13,7 @@ const InstructionInput: React.FC = () => {
   const nodeRef: React.MutableRefObject<null> = React.useRef(null);
 
   function inputHandler(e: React.ChangeEvent<HTMLTextAreaElement>): void {
-    setInput(e.target.value);
+    setInput(e.target.value.toUpperCase());
   }
 
   function saveInstructions(): void {
@@ -36,6 +36,7 @@ const InstructionInput: React.FC = () => {
           name="instructions"
           id="instructions"
           onChange={inputHandler}
+          value={input}
         ></textarea>
         <button onClick={saveInstructions}>Execute</button>
       </div>
