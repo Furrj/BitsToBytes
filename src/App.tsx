@@ -33,7 +33,6 @@ const App: React.FC = () => {
       })}
       <ControlPanel />
       <InstructionInput />
-      test
       <ComponentToolbar
         components={components}
         updateComponents={updateActiveComponents}
