@@ -5,6 +5,7 @@ import RAM from "./components/RAM/RAM";
 import Accumulator from "./components/Registers/Accumulator";
 import ComponentToolbar from "./components/UI/ComponentToolbar";
 import ControlPanel from "./components/Interfaces/ControlPanel";
+import InstructionInput from "./components/Interfaces/InstructionInput";
 
 const initState: JSX.Element[] = [];
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
     <RAM key={0} />,
     <Accumulator key={1} />,
     <ControlPanel key={2} />,
+    <InstructionInput key={3} />,
   ];
 
   function updateActiveComponents(component: JSX.Element): void {
@@ -30,6 +32,7 @@ const App: React.FC = () => {
         return component;
       })}
       <ControlPanel />
+      <InstructionInput />
       <ComponentToolbar
         components={components}
         updateComponents={updateActiveComponents}
