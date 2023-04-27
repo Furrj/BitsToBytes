@@ -13,7 +13,7 @@ export const instructionSlice = createSlice({
   name: "register",
   initialState,
   reducers: {
-    setInstructions: (state, action: PayloadAction<[][]>) => {
+    setInstructions: (state, action: PayloadAction<string[][]>) => {
       state.instructions = action.payload;
     },
   },

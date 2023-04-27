@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import styles from "./InstructionInput.module.css";
 import Draggable from "react-draggable";
 
+//REDUX
+import { useDispatch } from "react-redux";
+import { setInstructions } from "../../data/instructionSlice";
+
 const InstructionInput: React.FC = () => {
   const [input, setInput] = useState<string>("");
+  const dispatch = useDispatch();
 
   const nodeRef: React.MutableRefObject<null> = React.useRef(null);
 
@@ -20,7 +25,7 @@ const InstructionInput: React.FC = () => {
     for (let instruction of list) {
       instruction[1] = instruction[1].slice(0, instruction[1].length - 1);
     }
-    console.log(list);
+    dispatch(setInstructions(list));
   }
 
   return (
