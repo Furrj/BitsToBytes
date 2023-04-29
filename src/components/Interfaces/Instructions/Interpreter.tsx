@@ -15,6 +15,7 @@ const Interpreter: React.FC = () => {
   const currentInstruction: number = useSelector(
     (state: RootState) => state.instructions.currentInstruction
   );
+  const ramValues: number[] = useSelector((state: RootState) => state.ram.data);
   const dispatch = useDispatch();
 
   function executeInstruction(): void {
@@ -25,6 +26,9 @@ const Interpreter: React.FC = () => {
         console.log("Load instruction");
         switch (instructionLine[1]) {
           case "ACC":
+            dispatch(
+              registerReducer.setValue(ramValues[parseInt(instructionLine[2])])
+            );
             break;
         }
         break;
