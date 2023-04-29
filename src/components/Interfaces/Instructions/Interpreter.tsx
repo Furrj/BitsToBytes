@@ -16,6 +16,9 @@ const Interpreter: React.FC = () => {
     (state: RootState) => state.instructions.currentInstruction
   );
   const ramValues: number[] = useSelector((state: RootState) => state.ram.data);
+  const accumulatorValue: number = useSelector(
+    (state: RootState) => state.register.value
+  );
   const dispatch = useDispatch();
 
   function executeInstruction(): void {
@@ -34,6 +37,9 @@ const Interpreter: React.FC = () => {
         break;
       case "STO":
         console.log("Store instuction");
+        dispatch(
+          ramReducer.setValue([parseInt(instructionLine[1]), accumulatorValue])
+        );
         break;
       case "ADD":
         console.log("Add instruction");
