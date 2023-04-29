@@ -1,6 +1,7 @@
 @import "../../../vars.css";
 
 .output {
+  min-height: 100px;
   width: 300px;
   border: var(--border);
   position: absolute;

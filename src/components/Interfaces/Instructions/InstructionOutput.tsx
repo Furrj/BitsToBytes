@@ -17,40 +17,48 @@ const InstructionOutput: React.FC = () => {
   const currentInstruction: number = useSelector(
     (state: RootState) => state.instructions.currentInstruction
   );
-  const formattedList: string[] = [];
-
-  for (let line of instructionList) {
-    const copy = [...line];
-    copy[1] += ",";
-    const formattedLine = copy.join(" ");
-    formattedList.push(formattedLine);
-  }
-
   let content: JSX.Element[] = [];
 
-  if (formattedList.length > 0 && formattedList.length <= 5) {
-    let count: number = 0;
-    for (let line of formattedList) {
-      content.push(
-        <InstructionLine
-          content={line}
-          number={count}
-          current={count === currentInstruction}
-          key={count}
-        />
-      );
-      count++;
+  printInstructions(formatInstructions());
+
+  function formatInstructions(): string[] {
+    const formattedList: string[] = [];
+
+    for (let line of instructionList) {
+      const copy = [...line];
+      copy[1] += ",";
+      const formattedLine = copy.join(" ");
+      formattedList.push(formattedLine);
     }
-  } else if (formattedList.length > 5) {
-    for (let i = 0; i < 5; i++) {
-      content.push(
-        <InstructionLine
-          content={formattedList[currentInstruction + i]}
-          number={currentInstruction + i}
-          current={i === 0}
-          key={currentInstruction + i}
-        />
-      );
+
+    return formattedList;
+  }
+
+  function printInstructions(formattedList: string[]) {
+    if (formattedList.length > 0 && formattedList.length <= 5) {
+      let count: number = 0;
+      for (let line of formattedList) {
+        content.push(
+          <InstructionLine
+            content={line}
+            number={count}
+            current={count === currentInstruction}
+            key={count}
+          />
+        );
+        count++;
+      }
+    } else if (formattedList.length > 5) {
+      for (let i = 0; i < 5; i++) {
+        content.push(
+          <InstructionLine
+            content={formattedList[currentInstruction + i]}
+            number={currentInstruction + i}
+            current={i === 0}
+            key={currentInstruction + i}
+          />
+        );
+      }
     }
   }
 
