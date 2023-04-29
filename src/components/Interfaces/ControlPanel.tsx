@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import styles from "./ControlPanel.module.css";
 import Draggable from "react-draggable";
 
-//UTILS
-import executeInstruction from "../../utils/assemblyInterpreter";
-
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
-import * as instructionReducer from "../../data/instructionSlice";
 import * as registerReducer from "../../data/registerSlice";
 import { RootState } from "../../data/store";
 
@@ -35,12 +31,7 @@ const ControlPanel: React.FC = () => {
   const accValue: number = useSelector(
     (state: RootState) => state.register.value
   );
-  const instructionList: string[][] = useSelector(
-    (state: RootState) => state.instructions.instructions
-  );
-  const currentInstruction: number = useSelector(
-    (state: RootState) => state.instructions.currentInstruction
-  );
+
   const dispatch = useDispatch();
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -102,22 +93,7 @@ const ControlPanel: React.FC = () => {
             >
               Store
             </button>
-            <button
-              onClick={() => {
-                executeInstruction(
-                  instructionList,
-                  currentInstruction,
-                  ramReducer,
-                  instructionReducer,
-                  registerReducer,
-                  useSelector,
-                  dispatch
-                );
-                dispatch(instructionReducer.incrementCurrentInstruction());
-              }}
-            >
-              Incr
-            </button>
+            <button>Incr</button>
           </div>
         </div>
       </div>

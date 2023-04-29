@@ -12,6 +12,11 @@ function executeInstruction(
   switch (instructionLine[0]) {
     case "LOD":
       console.log("Load instruction");
+      switch (instructionLine[1]) {
+        case "ACC":
+          dispatch(registerReducer.setValue());
+          break;
+      }
       break;
     case "STO":
       console.log("Store instuction");
@@ -23,7 +28,7 @@ function executeInstruction(
       console.log("Move instruction");
       switch (instructionLine[1]) {
         case "ACC":
-          dispatch(registerReducer.setValue(instructionLine[2]));
+          dispatch(registerReducer.setValue(parseInt(instructionLine[2])));
           break;
       }
       break;
