@@ -5,8 +5,7 @@ import Draggable from "react-draggable";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
-import { incrementCurrentInstruction } from "../../data/instructionSlice";
-import { setValue } from "../../data/registerSlice";
+import * as registerReducer from "../../data/registerSlice";
 import { RootState } from "../../data/store";
 
 //STATE
@@ -32,6 +31,7 @@ const ControlPanel: React.FC = () => {
   const accValue: number = useSelector(
     (state: RootState) => state.register.value
   );
+
   const dispatch = useDispatch();
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -81,7 +81,11 @@ const ControlPanel: React.FC = () => {
             <div className={styles.boxTitle} style={{ marginLeft: "2px" }}>
               Accumulator
             </div>
-            <button onClick={() => dispatch(setValue(ramValues[address]))}>
+            <button
+              onClick={() =>
+                dispatch(registerReducer.setValue(ramValues[address]))
+              }
+            >
               Load
             </button>
             <button
@@ -89,9 +93,7 @@ const ControlPanel: React.FC = () => {
             >
               Store
             </button>
-            <button onClick={() => dispatch(incrementCurrentInstruction())}>
-              Incr
-            </button>
+            <button>Incr</button>
           </div>
         </div>
       </div>

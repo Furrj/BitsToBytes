@@ -37,6 +37,7 @@ export const ramSlice = createSlice({
       state.data[info.payload[0]] -= info.payload[1];
     },
     setValue: (state, info: PayloadAction<number[]>) => {
+      //[address, value]
       state.data[info.payload[0]] = info.payload[1];
     },
   },
