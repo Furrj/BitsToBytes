@@ -5,6 +5,9 @@ import Draggable from "react-draggable";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
+import instructionReducer, {
+  incrementCurrentInstruction,
+} from "../../data/instructionSlice";
 import { setValue } from "../../data/registerSlice";
 import { RootState } from "../../data/store";
 
@@ -96,7 +99,9 @@ const ControlPanel: React.FC = () => {
             >
               Store
             </button>
-            <button onClick={instructions}>Instructions</button>
+            <button onClick={() => dispatch(incrementCurrentInstruction())}>
+              Incr
+            </button>
           </div>
         </div>
       </div>

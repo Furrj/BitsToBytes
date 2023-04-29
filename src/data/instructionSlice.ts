@@ -24,6 +24,7 @@ export const instructionSlice = createSlice({
   },
 });
 
-export const { setInstructions } = instructionSlice.actions;
+export const { setInstructions, incrementCurrentInstruction } =
+  instructionSlice.actions;
 
 export default instructionSlice.reducer;

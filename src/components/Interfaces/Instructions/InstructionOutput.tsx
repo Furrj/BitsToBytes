@@ -26,13 +26,39 @@ const InstructionOutput: React.FC = () => {
     formattedList.push(formattedLine);
   }
 
+  let content: JSX.Element[] = [];
+
+  if (formattedList.length > 0 && formattedList.length <= 5) {
+    let count: number = 0;
+    for (let line of formattedList) {
+      content.push(
+        <InstructionLine
+          content={line}
+          number={count}
+          current={count === currentInstruction}
+          key={count}
+        />
+      );
+      count++;
+    }
+  } else if (formattedList.length > 5) {
+    for (let i = 0; i < 5; i++) {
+      content.push(
+        <InstructionLine
+          content={formattedList[currentInstruction + i]}
+          number={currentInstruction + i}
+          current={i === 0}
+          key={currentInstruction + i}
+        />
+      );
+    }
+  }
+
   return (
     <Draggable nodeRef={nodeRef}>
       <div className={styles.output} ref={nodeRef}>
         <div className={styles.title}>Instruction Output</div>
-        {formattedList.map((line) => {
-          return <InstructionLine content={line} number={0} current={true} />;
-        })}
+        <div className={styles.instructions}>{content}</div>
       </div>
     </Draggable>
   );
