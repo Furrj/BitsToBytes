@@ -5,8 +5,8 @@ import RAM from "./components/RAM/RAM";
 import Accumulator from "./components/Registers/Accumulator";
 import ComponentToolbar from "./components/UI/ComponentToolbar";
 import ControlPanel from "./components/Interfaces/ControlPanel";
-import InstructionInput from "./components/Interfaces/InstructionInput";
-import InstructionOutput from "./components/Interfaces/InstructionOutput";
+import InstructionInput from "./components/Interfaces/Instructions/InstructionInput";
+import InstructionOutput from "./components/Interfaces/Instructions/InstructionOutput";
 
 const initState: JSX.Element[] = [];
 

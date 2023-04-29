@@ -4,7 +4,7 @@ import Draggable from "react-draggable";
 
 //REDUX
 import { useDispatch } from "react-redux";
-import { setInstructions } from "../../data/instructionSlice";
+import { setInstructions } from "../../../data/instructionSlice";
 
 const InstructionInput: React.FC = () => {
   const [input, setInput] = useState<string>("");
