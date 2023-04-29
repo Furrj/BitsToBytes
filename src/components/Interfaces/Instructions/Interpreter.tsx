@@ -53,6 +53,7 @@ const Interpreter: React.FC = () => {
         }
         break;
     }
+    dispatch(instructionReducer.incrementCurrentInstruction());
   }
 
   return <button onClick={executeInstruction}>Execute</button>;

@@ -21,10 +21,16 @@ export const instructionSlice = createSlice({
     incrementCurrentInstruction: (state) => {
       state.currentInstruction += 1;
     },
+    resetCurrentInstruction: (state) => {
+      state.currentInstruction = 0;
+    },
   },
 });
 
-export const { setInstructions, incrementCurrentInstruction } =
-  instructionSlice.actions;
+export const {
+  setInstructions,
+  incrementCurrentInstruction,
+  resetCurrentInstruction,
+} = instructionSlice.actions;
 
 export default instructionSlice.reducer;

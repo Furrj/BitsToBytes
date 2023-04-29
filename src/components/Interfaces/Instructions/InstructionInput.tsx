@@ -4,7 +4,10 @@ import Draggable from "react-draggable";
 
 //REDUX
 import { useDispatch } from "react-redux";
-import { setInstructions } from "../../../data/instructionSlice";
+import {
+  setInstructions,
+  resetCurrentInstruction,
+} from "../../../data/instructionSlice";
 
 const InstructionInput: React.FC = () => {
   const [input, setInput] = useState<string>("");
@@ -25,6 +28,7 @@ const InstructionInput: React.FC = () => {
     for (let instruction of list) {
       instruction[1] = instruction[1].slice(0, instruction[1].length - 1);
     }
+    dispatch(resetCurrentInstruction());
     dispatch(setInstructions(list));
   }
 
