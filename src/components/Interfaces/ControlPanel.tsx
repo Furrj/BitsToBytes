@@ -8,8 +8,8 @@ import executeInstruction from "../../utils/assemblyInterpreter";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
-import { incrementCurrentInstruction } from "../../data/instructionSlice";
-import { setValue } from "../../data/registerSlice";
+import * as instructionReducer from "../../data/instructionSlice";
+import * as registerReducer from "../../data/registerSlice";
 import { RootState } from "../../data/store";
 
 //STATE
@@ -90,7 +90,11 @@ const ControlPanel: React.FC = () => {
             <div className={styles.boxTitle} style={{ marginLeft: "2px" }}>
               Accumulator
             </div>
-            <button onClick={() => dispatch(setValue(ramValues[address]))}>
+            <button
+              onClick={() =>
+                dispatch(registerReducer.setValue(ramValues[address]))
+              }
+            >
               Load
             </button>
             <button
@@ -100,8 +104,16 @@ const ControlPanel: React.FC = () => {
             </button>
             <button
               onClick={() => {
-                executeInstruction(instructionList, currentInstruction);
-                dispatch(incrementCurrentInstruction());
+                executeInstruction(
+                  instructionList,
+                  currentInstruction,
+                  ramReducer,
+                  instructionReducer,
+                  registerReducer,
+                  useSelector,
+                  dispatch
+                );
+                dispatch(instructionReducer.incrementCurrentInstruction());
               }}
             >
               Incr
