@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import styles from "./ControlPanel.module.css";
 import Draggable from "react-draggable";
 
+//UTILS
+import executeInstruction from "../../utils/assemblyInterpreter";
+
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
@@ -31,6 +34,12 @@ const ControlPanel: React.FC = () => {
   );
   const accValue: number = useSelector(
     (state: RootState) => state.register.value
+  );
+  const instructionList: string[][] = useSelector(
+    (state: RootState) => state.instructions.instructions
+  );
+  const currentInstruction: number = useSelector(
+    (state: RootState) => state.instructions.currentInstruction
   );
   const dispatch = useDispatch();
 
@@ -89,7 +98,12 @@ const ControlPanel: React.FC = () => {
             >
               Store
             </button>
-            <button onClick={() => dispatch(incrementCurrentInstruction())}>
+            <button
+              onClick={() => {
+                executeInstruction(instructionList, currentInstruction);
+                dispatch(incrementCurrentInstruction());
+              }}
+            >
               Incr
             </button>
           </div>
