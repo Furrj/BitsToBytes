@@ -1,0 +1,14 @@
+.line {
+  color: white;
+}
+
+.current {
+  background: lightblue;
+}
+
+.number {
+  width: 20px;
+  border-right: 1px solid white;
+  position: absolute;
+  left: 0;
+}

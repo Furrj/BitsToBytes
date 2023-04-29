@@ -5,6 +5,7 @@ import Draggable from "react-draggable";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import * as ramReducer from "../../data/ramSlice";
+import { incrementCurrentInstruction } from "../../data/instructionSlice";
 import { setValue } from "../../data/registerSlice";
 import { RootState } from "../../data/store";
 
@@ -24,10 +25,6 @@ const ControlPanel: React.FC = () => {
 
   const nodeRef: React.MutableRefObject<null> = React.useRef(null);
 
-  const instructionList: string[][] = useSelector(
-    (state: RootState) => state.instructions.instructions
-  );
-
   const ramValues: number[] = useSelector((state: RootState) => state.ram.data);
   const address: number = useSelector(
     (state: RootState) => state.ram.currentAddress
@@ -39,10 +36,6 @@ const ControlPanel: React.FC = () => {
 
   function inputHandler(e: React.ChangeEvent<HTMLInputElement>): void {
     setInput({ ...input, [e.target.name]: e.target.value });
-  }
-
-  function instructions(): void {
-    console.log(instructionList);
   }
 
   return (
@@ -96,7 +89,9 @@ const ControlPanel: React.FC = () => {
             >
               Store
             </button>
-            <button onClick={instructions}>Instructions</button>
+            <button onClick={() => dispatch(incrementCurrentInstruction())}>
+              Incr
+            </button>
           </div>
         </div>
       </div>

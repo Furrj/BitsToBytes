@@ -3,10 +3,12 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface instructionState {
   instructions: string[][];
+  currentInstruction: number;
 }
 
 const initialState: instructionState = {
   instructions: [],
+  currentInstruction: 0,
 };
 
 export const instructionSlice = createSlice({
@@ -16,9 +18,13 @@ export const instructionSlice = createSlice({
     setInstructions: (state, action: PayloadAction<string[][]>) => {
       state.instructions = action.payload;
     },
+    incrementCurrentInstruction: (state) => {
+      state.currentInstruction += 1;
+    },
   },
 });
 
-export const { setInstructions } = instructionSlice.actions;
+export const { setInstructions, incrementCurrentInstruction } =
+  instructionSlice.actions;
 
 export default instructionSlice.reducer;
