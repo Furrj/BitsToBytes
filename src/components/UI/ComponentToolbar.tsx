@@ -27,7 +27,9 @@ const ComponentToolbar: React.FC<IProps> = ({
     >
       {open ? (
         <div className={styles.boxContainer}>
-          <div onClick={() => setOpen(false)}>Collapse</div>
+          <div onClick={() => setOpen(false)}>
+            <i className="fa-solid fa-arrow-left-long" />
+          </div>
           <ComponentToolbarBox
             title="RAM"
             component={components[0]}
@@ -40,8 +42,28 @@ const ComponentToolbar: React.FC<IProps> = ({
             updateComponents={updateComponents}
             restrictSpawn={true}
           />
+          <ComponentToolbarBox
+            title="Control Panel"
+            component={components[2]}
+            updateComponents={updateComponents}
+            restrictSpawn={true}
+          />
+          <ComponentToolbarBox
+            title="Terminal"
+            component={components[3]}
+            updateComponents={updateComponents}
+            restrictSpawn={true}
+          />
+          <ComponentToolbarBox
+            title="Output"
+            component={components[4]}
+            updateComponents={updateComponents}
+            restrictSpawn={true}
+          />
         </div>
-      ) : null}
+      ) : (
+        <i className="fa-solid fa-arrow-up-right-from-square" />
+      )}
     </div>
   );
 };
