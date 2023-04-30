@@ -7,12 +7,14 @@ import ComponentToolbarBox from "./ComponentToolbarBox";
 //STATE
 interface IProps {
   components: JSX.Element[];
-  updateComponents: (component: JSX.Element) => void;
+  activeComponents: JSX.Element[];
+  updateActiveComponents: (component: JSX.Element) => void;
 }
 
 const ComponentToolbar: React.FC<IProps> = ({
   components,
-  updateComponents,
+  activeComponents,
+  updateActiveComponents,
 }) => {
   const [open, setOpen] = useState<boolean>(false);
 
@@ -33,31 +35,36 @@ const ComponentToolbar: React.FC<IProps> = ({
           <ComponentToolbarBox
             title="RAM"
             component={components[0]}
-            updateComponents={updateComponents}
+            activeComponents={activeComponents}
+            updateActiveComponents={updateActiveComponents}
             restrictSpawn={true}
           />
           <ComponentToolbarBox
             title="Accumulator"
             component={components[1]}
-            updateComponents={updateComponents}
+            activeComponents={activeComponents}
+            updateActiveComponents={updateActiveComponents}
             restrictSpawn={true}
           />
           <ComponentToolbarBox
             title="Control Panel"
             component={components[2]}
-            updateComponents={updateComponents}
+            activeComponents={activeComponents}
+            updateActiveComponents={updateActiveComponents}
             restrictSpawn={true}
           />
           <ComponentToolbarBox
             title="Terminal"
             component={components[3]}
-            updateComponents={updateComponents}
+            activeComponents={activeComponents}
+            updateActiveComponents={updateActiveComponents}
             restrictSpawn={true}
           />
           <ComponentToolbarBox
             title="Output"
             component={components[4]}
-            updateComponents={updateComponents}
+            activeComponents={activeComponents}
+            updateActiveComponents={updateActiveComponents}
             restrictSpawn={true}
           />
         </div>
