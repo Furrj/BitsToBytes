@@ -25,21 +25,18 @@ const Interpreter: React.FC = () => {
   function executeInstruction(): void {
     switch (instructionLine[0]) {
       case instructions.Load:
-        console.log("Load instruction");
         loadInstruction();
         break;
       case instructions.Store:
-        console.log("Store instuction");
         storeInstruction();
         break;
       case instructions.Add:
-        console.log("Add instruction");
+        addInstruction();
         break;
       case instructions.Move:
-        console.log("Move instruction");
+        moveInstruction();
         break;
       case instructions.MoveI:
-        console.log("Move Immediate instruction");
         movIInstruction();
         break;
     }
@@ -47,6 +44,7 @@ const Interpreter: React.FC = () => {
   }
 
   function loadInstruction(): void {
+    console.log("Load instruction");
     switch (instructionLine[1]) {
       case "A":
         dispatch(
@@ -57,17 +55,27 @@ const Interpreter: React.FC = () => {
   }
 
   function storeInstruction(): void {
+    console.log("Store instuction");
     dispatch(
       ramReducer.setValue([parseInt(instructionLine[1]), accumulatorValue])
     );
   }
 
+  function moveInstruction(): void {
+    console.log("Move instruction");
+  }
+
   function movIInstruction(): void {
+    console.log("Move Immediate instruction");
     switch (instructionLine[1]) {
       case "A":
         dispatch(registerReducer.setValue(parseInt(instructionLine[2])));
         break;
     }
+  }
+
+  function addInstruction(): void {
+    console.log("Add instruction");
   }
 
   return (
