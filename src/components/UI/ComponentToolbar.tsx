@@ -40,6 +40,24 @@ const ComponentToolbar: React.FC<IProps> = ({
             updateComponents={updateComponents}
             restrictSpawn={true}
           />
+          <ComponentToolbarBox
+            title="Control Panel"
+            component={components[2]}
+            updateComponents={updateComponents}
+            restrictSpawn={true}
+          />
+          <ComponentToolbarBox
+            title="Terminal"
+            component={components[3]}
+            updateComponents={updateComponents}
+            restrictSpawn={true}
+          />
+          <ComponentToolbarBox
+            title="Output"
+            component={components[4]}
+            updateComponents={updateComponents}
+            restrictSpawn={true}
+          />
         </div>
       ) : null}
     </div>

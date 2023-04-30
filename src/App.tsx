@@ -35,9 +35,6 @@ const App: React.FC = () => {
       {activeComponents.map((component) => {
         return component;
       })}
-      <ControlPanel />
-      <InstructionInput />
-      <InstructionOutput />
       <Interpreter />
       <ComponentToolbar
         components={components}
