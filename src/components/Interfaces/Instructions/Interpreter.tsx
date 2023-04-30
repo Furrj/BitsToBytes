@@ -20,47 +20,69 @@ const Interpreter: React.FC = () => {
     (state: RootState) => state.register.value
   );
   const dispatch = useDispatch();
+  const instructionLine: string[] = instructionList[currentInstruction];
 
   function executeInstruction(): void {
-    const instructionLine: string[] = instructionList[currentInstruction];
-
     switch (instructionLine[0]) {
-      case "LOD":
+      case instructions.Load:
         console.log("Load instruction");
-        switch (instructionLine[1]) {
-          case "ACC":
-            dispatch(
-              registerReducer.setValue(ramValues[parseInt(instructionLine[2])])
-            );
-            break;
-        }
+        loadInstruction();
         break;
-      case "STO":
+      case instructions.Store:
         console.log("Store instuction");
-        dispatch(
-          ramReducer.setValue([parseInt(instructionLine[1]), accumulatorValue])
-        );
+        storeInstruction();
         break;
-      case "ADD":
+      case instructions.Add:
         console.log("Add instruction");
         break;
-      case "MOV":
+      case instructions.Move:
         console.log("Move instruction");
-        switch (instructionLine[1]) {
-          case "ACC":
-            dispatch(registerReducer.setValue(parseInt(instructionLine[2])));
-            break;
-        }
+        break;
+      case instructions.MoveI:
+        console.log("Move Immediate instruction");
+        movIInstruction();
         break;
     }
     dispatch(instructionReducer.incrementCurrentInstruction());
   }
 
+  function loadInstruction(): void {
+    switch (instructionLine[1]) {
+      case "A":
+        dispatch(
+          registerReducer.setValue(ramValues[parseInt(instructionLine[2])])
+        );
+        break;
+    }
+  }
+
+  function storeInstruction(): void {
+    dispatch(
+      ramReducer.setValue([parseInt(instructionLine[1]), accumulatorValue])
+    );
+  }
+
+  function movIInstruction(): void {
+    switch (instructionLine[1]) {
+      case "A":
+        dispatch(registerReducer.setValue(parseInt(instructionLine[2])));
+        break;
+    }
+  }
+
   return (
     <button onClick={executeInstruction} className={styles.button}>
-      Execute
+      <h4>Execute</h4>
     </button>
   );
 };
+
+enum instructions {
+  Load = "LOD",
+  Store = "STO",
+  Move = "MOV",
+  MoveI = "MOVI",
+  Add = "ADD",
+}
 
 export default Interpreter;
