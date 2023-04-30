@@ -8,6 +8,7 @@ import ControlPanel from "./components/Interfaces/ControlPanel";
 import InstructionInput from "./components/Interfaces/Instructions/InstructionInput";
 import InstructionOutput from "./components/Interfaces/Instructions/InstructionOutput";
 import Interpreter from "./components/Interfaces/Instructions/Interpreter";
+import DialogueBox from "./components/UI/DialogueBox";
 
 const initState: JSX.Element[] = [];
 
@@ -36,6 +37,7 @@ const App: React.FC = () => {
         return component;
       })}
       <Interpreter />
+      <DialogueBox />
       <ComponentToolbar
         components={components}
         updateComponents={updateActiveComponents}
