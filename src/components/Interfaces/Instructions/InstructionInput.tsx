@@ -27,9 +27,22 @@ const InstructionInput: React.FC = () => {
     }
     for (let instruction of list) {
       instruction[1] = instruction[1].slice(0, instruction[1].length - 1);
+      if (instruction[1][0] === "[") {
+        instruction.push("True");
+        instruction[1] = instruction[1].slice(1, instruction[1].length - 1);
+      } else {
+        instruction.push("False");
+      }
+      if (instruction[2][0] === "[") {
+        instruction.push("True");
+        instruction[2] = instruction[2].slice(1, instruction[2].length - 1);
+      } else {
+        instruction.push("False");
+      }
     }
     dispatch(resetCurrentInstruction());
     dispatch(setInstructions(list));
+    console.log(list);
   }
 
   return (

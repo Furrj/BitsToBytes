@@ -56,7 +56,11 @@ const Interpreter: React.FC = () => {
     dispatch(instructionReducer.incrementCurrentInstruction());
   }
 
-  return <button onClick={executeInstruction}>Execute</button>;
+  return (
+    <button onClick={executeInstruction} className={styles.button}>
+      Execute
+    </button>
+  );
 };
 
 export default Interpreter;
