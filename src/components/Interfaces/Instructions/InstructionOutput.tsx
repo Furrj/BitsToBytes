@@ -26,7 +26,14 @@ const InstructionOutput: React.FC = () => {
 
     for (let line of instructionList) {
       const copy = [...line];
+      if (copy[3] === "True") {
+        copy[1] = `[${copy[1]}]`;
+      }
+      if (copy[4] === "True") {
+        copy[2] = `[${copy[2]}]`;
+      }
       copy[1] += ",";
+      copy.splice(3);
       const formattedLine = copy.join(" ");
       formattedList.push(formattedLine);
     }

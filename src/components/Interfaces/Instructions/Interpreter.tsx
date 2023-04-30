@@ -20,43 +20,80 @@ const Interpreter: React.FC = () => {
     (state: RootState) => state.register.value
   );
   const dispatch = useDispatch();
+  const instructionLine: string[] = instructionList[currentInstruction];
 
   function executeInstruction(): void {
-    const instructionLine: string[] = instructionList[currentInstruction];
-
     switch (instructionLine[0]) {
-      case "LOD":
-        console.log("Load instruction");
-        switch (instructionLine[1]) {
-          case "ACC":
-            dispatch(
-              registerReducer.setValue(ramValues[parseInt(instructionLine[2])])
-            );
-            break;
-        }
+      case instructions.Load:
+        loadInstruction();
         break;
-      case "STO":
-        console.log("Store instuction");
-        dispatch(
-          ramReducer.setValue([parseInt(instructionLine[1]), accumulatorValue])
-        );
+      case instructions.Store:
+        storeInstruction();
         break;
-      case "ADD":
-        console.log("Add instruction");
+      case instructions.Add:
+        addInstruction();
         break;
-      case "MOV":
-        console.log("Move instruction");
-        switch (instructionLine[1]) {
-          case "ACC":
-            dispatch(registerReducer.setValue(parseInt(instructionLine[2])));
-            break;
-        }
+      case instructions.Move:
+        moveInstruction();
+        break;
+      case instructions.MoveI:
+        movIInstruction();
         break;
     }
     dispatch(instructionReducer.incrementCurrentInstruction());
   }
 
-  return <button onClick={executeInstruction}>Execute</button>;
+  function loadInstruction(): void {
+    console.log("Load instruction");
+    switch (instructionLine[1]) {
+      case "A":
+        dispatch(
+          //Set Acc value to value at RAM address
+          registerReducer.setValue(ramValues[parseInt(instructionLine[2])])
+        );
+        break;
+    }
+  }
+
+  function storeInstruction(): void {
+    console.log("Store instuction");
+    dispatch(
+      //Store Acc value to RAM address
+      ramReducer.setValue([parseInt(instructionLine[1]), accumulatorValue])
+    );
+  }
+
+  function moveInstruction(): void {
+    console.log("Move instruction");
+  }
+
+  function movIInstruction(): void {
+    console.log("Move Immediate instruction");
+    switch (instructionLine[1]) {
+      case "A":
+        //Set Acc to value
+        dispatch(registerReducer.setValue(parseInt(instructionLine[2])));
+        break;
+    }
+  }
+
+  function addInstruction(): void {
+    console.log("Add instruction");
+  }
+
+  return (
+    <button onClick={executeInstruction} className={styles.button}>
+      <h4>Execute</h4>
+    </button>
+  );
 };
+
+enum instructions {
+  Load = "LOD",
+  Store = "STO",
+  Move = "MOV",
+  MoveI = "MOVI",
+  Add = "ADD",
+}
 
 export default Interpreter;
