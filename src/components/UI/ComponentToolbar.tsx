@@ -27,7 +27,9 @@ const ComponentToolbar: React.FC<IProps> = ({
     >
       {open ? (
         <div className={styles.boxContainer}>
-          <div onClick={() => setOpen(false)}>Collapse</div>
+          <div onClick={() => setOpen(false)}>
+            <i className="fa-solid fa-arrow-left-long" />
+          </div>
           <ComponentToolbarBox
             title="RAM"
             component={components[0]}
@@ -59,7 +61,9 @@ const ComponentToolbar: React.FC<IProps> = ({
             restrictSpawn={true}
           />
         </div>
-      ) : null}
+      ) : (
+        <i className="fa-solid fa-arrow-up-right-from-square" />
+      )}
     </div>
   );
 };
