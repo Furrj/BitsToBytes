@@ -33,14 +33,13 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      {activeComponents.map((component) => {
-        return component;
-      })}
+      {activeComponents}
       <Interpreter />
       <DialogueBox />
       <ComponentToolbar
         components={components}
-        updateComponents={updateActiveComponents}
+        activeComponents={activeComponents}
+        updateActiveComponents={updateActiveComponents}
       />
     </div>
   );
