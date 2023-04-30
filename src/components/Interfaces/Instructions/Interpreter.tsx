@@ -48,6 +48,7 @@ const Interpreter: React.FC = () => {
     switch (instructionLine[1]) {
       case "A":
         dispatch(
+          //Set Acc value to value at RAM address
           registerReducer.setValue(ramValues[parseInt(instructionLine[2])])
         );
         break;
@@ -57,6 +58,7 @@ const Interpreter: React.FC = () => {
   function storeInstruction(): void {
     console.log("Store instuction");
     dispatch(
+      //Store Acc value to RAM address
       ramReducer.setValue([parseInt(instructionLine[1]), accumulatorValue])
     );
   }
@@ -69,6 +71,7 @@ const Interpreter: React.FC = () => {
     console.log("Move Immediate instruction");
     switch (instructionLine[1]) {
       case "A":
+        //Set Acc to value
         dispatch(registerReducer.setValue(parseInt(instructionLine[2])));
         break;
     }
